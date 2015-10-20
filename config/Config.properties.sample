@@ -1,0 +1,43 @@
+#Config.properties
+
+# Mode selection:
+# * ifmap to use IF-MAP mode, requires the mapserver.* properties to be set!
+# * icinga to user Icinga mode
+icinga.or.ifmap=
+
+# The effect of this property differs based on the mode that was selected above!
+#
+# * When using IF-MAP mode, this option defines the IP-Address which will be used to publish the FIM-device to the MAP-Server
+#	This should be equal to the IP-Address of the physical device that is visible to the MAP-Server
+#
+# * When using Icinga mode, this option defines the IP-Address of the NSCA server that is used to send events to Icinga
+IP-Address=
+
+# The following properties are only required if you are using the IF-MAP mode, Icinga mode will ignore them completely
+
+# This is the URL of the MAP-Server which will be published to.
+# Must be of format https://[IP-or-DOMAIN]:[PORT]
+mapserver.url=https://127.0.0.1:8443/
+
+# Define the keystore that should be used for client validation at the MAP-Server
+# A default keystore is included in this distribution inside the /keystore/ directory
+mapserver.keystore.path=/keystore/iptablesmap.jks
+
+# Password to access the keystore defined above
+mapserver.keystore.password=iptablesmap
+
+# Define the truststore to validate the MAP-Server certificate
+# A default truststore is included in this distribution inside the /keystore/ directory
+mapserver.truststore.path=/keystore/iptablesmap.jks
+
+# Password to access the truststore defined above
+mapserver.truststore.password=iptablesmap
+
+# Select whether to use basic authentication or not
+# This is recommended to be set to true for development purposes
+mapserver.basicauth.enabled=true
+
+# The following two properties define the credentials to be used with basic authentication at the MAP-Server
+# These must be configured in the MAP-Server and MUST NOT be used by any other MAP-Client!
+mapserver.basicauth.user=
+mapserver.basicauth.password=

@@ -1,0 +1,3 @@
+# Insert paths/files to monitor and their importance.
+/home , high
+/etc/fstab , critical
